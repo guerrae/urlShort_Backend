@@ -22,7 +22,7 @@ app.use(
 // Root page
 app.get('/', 
     function(req, res){
-        res.send("Test");
+        res.send("The miniurl server is running!<br/><br/>Visit www.miniurl.gq to minimize your URL's.");
     }
 )
 
