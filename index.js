@@ -30,7 +30,7 @@ app.get('/',
 app.post('/short', async (req, res) => {
     try{
         // Check to see if Long URL already exists
-        let find = "SELECT short_url FROM url_Data WHERE long_url='" + req.body.url + "'";
+        let find = "SELECT short_url FROM " + TABLE_NAME + " WHERE long_url='" + req.body.url + "'";
         db.pool.query(find, (error, results) => {
             if (error) {
                 throw error;
@@ -48,7 +48,7 @@ app.post('/short', async (req, res) => {
                     let short_url = encode.replace(/=/g,'');
 
                     // Add new record
-                    let sql_new = "INSERT INTO url_data (long_url, short_url) VALUES ('" + req.body.url + "','" + short_url + "')";
+                    let sql_new = "INSERT INTO " + TABLE_NAME + " (long_url, short_url) VALUES ('" + req.body.url + "','" + short_url + "')";
                     db.pool.query(sql_new, (error, results) => {
                         if (error){
                             throw error;
