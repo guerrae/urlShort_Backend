@@ -1,13 +1,14 @@
 // Databse variables
+require('dotenv').config()
 const Pool = require('pg').Pool;
 
 // Database instance
 const pool = new Pool({
-  user: 'postgres',
-  host: 'containers-us-west-96.railway.app',
-  database: 'railway',
-  password: 'z2Mp6PcfjqV3fWZFPEZy',
-  port: 7242,
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_DATA,
+  password: process.env.DB_PASS,
+  port: process.env.DB_PORT,
 });
 
 module.exports = {
